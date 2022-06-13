@@ -1,4 +1,6 @@
 import 'package:buy_sell_appliction/constants/global_variable.dart';
+import 'package:buy_sell_appliction/features/router.dart';
+import 'package:buy_sell_appliction/features/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,26 +17,33 @@ class MyApp extends StatelessWidget {
       title: 'Buy sell Application',
       theme: ThemeData(
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-        colorScheme: ColorScheme.light(
+        colorScheme: const ColorScheme.light(
           primary: GlobalVariables.secondaryColor,
         ),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           elevation: 0,
           iconTheme: IconThemeData(color: Colors.black),
         ),
       ),
+      onGenerateRoute: (settings) => genarateRoute(settings),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Buy & Sell'),
         ),
         body: Column(
           children: [
-            Center(
-              child: const Text('Flutter Buy Sell Application'),
+            const Center(
+              child: Text('Flutter Buy Sell Application'),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text("click"),
+            Builder(
+              builder: (context) {
+                return ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, AuthScreen.routeName);
+                  },
+                  child: Text("click"),
+                );
+              },
             ),
           ],
         ),
