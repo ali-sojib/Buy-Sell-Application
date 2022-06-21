@@ -26,28 +26,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: (settings) => genarateRoute(settings),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Buy & Sell'),
-        ),
-        body: Column(
-          children: [
-            const Center(
-              child: Text('Flutter Buy Sell Application'),
-            ),
-            Builder(
-              builder: (context) {
-                return ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AuthScreen.routeName);
-                  },
-                  child: Text("click"),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      home: const AuthScreen(),
     );
   }
 }
