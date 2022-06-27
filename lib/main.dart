@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.black),
         ),
       ),
-      onGenerateRoute: (settings) => genarateRoute(settings),
+      onGenerateRoute: (settings) => generateRoute(settings),
       home: const AuthScreen(),
     );
   }
