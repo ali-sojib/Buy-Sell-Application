@@ -1,21 +1,17 @@
-console.log('hello world');
-
+//IMPORTS FOMR PACKAGES
 const express = require('express');
-//like import 'package:express/express.dart
+
+//IMPORTS FROM OTER FILES
+const authRouter=require("./routes/auth");
+//import './features/auth/auth_screen.dart'
+
+//INIT
 const PORT = 3000;
 const app = express();
 
-app.get("/ali",(req,res)=>{
-    res.json({name:"ali_sojib"})
-})
-
-//CREATING AN API
-//http://<ipaddress>hello-word
-app.get("/hello-world", (req,res)=>{
-      res.send("hell world")
-//    res.json({hi: "hello world"});
-})
-//GET, PUT, POST, DELETE, UPDATE ->CURD
+//MIDDLE WARE
+//CLIENT ->{MIDDLE WARE}-> SERVER -> CLIENT ->
+app.use(authRouter);
 
 
 app.listen(PORT, ()=>{
