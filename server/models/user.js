@@ -36,6 +36,11 @@ const userSchmea = mongoose.Schema({
         type:String,
         default:"user",
     },
+    /*
+    #id
+    #__v 
+    will give by dfault by mongoDB*/
+
     //lettter will add cart funtonalities
 })
 
