@@ -1,21 +1,22 @@
 const express = require('express');
+const User = require("../models/user")
 
 const authRouter = express.Router();
 
-authRouter.post('/api/signup',(req,res)=>{
-    // console.log(req.body);
-    /*
-    {
-        'name': name,
-        'email': email,
-        'password':password
-        for these value and key we have to declared saparate 
-        varibale but in JS we can just set in const like destructuring
-    }
-    */
-    const {name,email,password} = req.body;
+authRouter.post('/api/signup',async (req,res)=>{
+    
     //get the data form client
-    //post that data in database
+    const {name,email,password} = req.body;
+    
+    /* validating email from user model schema */
+    const existingUser = await User.findOne({email});
+   
+    /*Email-
+    existingUser will not give boolean valu 
+    it just chakiing, is it excistign anythings*/
+    if(existingUser){
+        return res.status(400).json({msg: "User with same email already exisits!! "})
+    }
     //return that data in the user
 });
 

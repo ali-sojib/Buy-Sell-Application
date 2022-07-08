@@ -21,6 +21,7 @@ class CustomTextField extends StatelessWidget {
           borderSide: BorderSide(color: Colors.black54),
         ),
       ),
+      validator: (val) {},
     );
   }
 }
