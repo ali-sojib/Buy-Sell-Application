@@ -1,6 +1,7 @@
 import 'package:buy_sell_appliction/common/widgets/custom_button.dart';
 import 'package:buy_sell_appliction/common/widgets/custom_textfield.dart';
 import 'package:buy_sell_appliction/constants/global_variable.dart';
+import 'package:buy_sell_appliction/features/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 enum Auth {
@@ -20,6 +21,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Auth _auth = Auth.signUp;
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
+  final AuthService authService = AuthService();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -32,6 +34,15 @@ class _AuthScreenState extends State<AuthScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     _nameController.dispose();
+  }
+
+  void signUpUser() {
+    authService.signUpUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+      name: _nameController.text,
+    );
   }
 
   @override
@@ -97,7 +108,14 @@ class _AuthScreenState extends State<AuthScreen> {
                         const SizedBox(height: 10),
                         CustomButton(
                           text: "Sign Up",
-                          onTap: () {},
+                          onTap: () {
+                            if (_signUpFormKey.currentState!.validate()) {
+                              // if (_passwordController.text.length > 6) {
+                              signUpUser();
+                              // }
+
+                            }
+                          },
                         )
                       ],
                     ),

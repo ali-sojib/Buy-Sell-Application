@@ -21,7 +21,17 @@ class CustomTextField extends StatelessWidget {
           borderSide: BorderSide(color: Colors.black54),
         ),
       ),
-      validator: (val) {},
+      validator: (val) {
+        if (val == null || val.isEmpty) {
+          return 'Enter your $hintText';
+        }
+        if (hintText == "Password") {
+          if (controller.text.length < 6) {
+            return 'Plase Enter a long password';
+          }
+        }
+        return null;
+      },
     );
   }
 }

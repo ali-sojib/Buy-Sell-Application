@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const userSchmea = mongoose.Schema({
+const userSchema = mongoose.Schema({
     name:{
         required: true,
         type: String,
@@ -15,7 +15,7 @@ const userSchmea = mongoose.Schema({
                 const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
                 return value.match(re);
             },
-            massage: "Plase enter a valid email address",
+            message: "Plase enter a valid email address",
         }
     },
     password:{
@@ -23,9 +23,10 @@ const userSchmea = mongoose.Schema({
         type: String,
         validate:{
             validator: (value)=>{
+                
                 return value.length>6;
             },
-            massage: "Plase enter a long password",
+            message: "Plase enter a long password",
         }
     },
     address:{
@@ -45,7 +46,7 @@ const userSchmea = mongoose.Schema({
 })
 
 
-const User = mongoose.model("User",userSchmea);
+const User = mongoose.model("User",userSchema);
 module.exports=User;
 
 
