@@ -25,6 +25,7 @@ class CustomTextField extends StatelessWidget {
         if (val == null || val.isEmpty) {
           return 'Enter your $hintText';
         }
+        //my own style for password ui velidation
         if (hintText == "Password") {
           if (controller.text.length < 6) {
             return 'Plase Enter a long password';

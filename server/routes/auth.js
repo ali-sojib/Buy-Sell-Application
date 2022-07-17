@@ -37,4 +37,25 @@ authRouter.post('/api/signup',async (req,res)=>{
    }
 });
 
+//Sign In Route
+//Exercise
+authRouter.post('/api/signin',async (req, res)=>{
+    try{
+        const{email,password}= req.body;
+        //finding is that email exist
+        const user = await User.findOne({email})
+        if(!user){
+            return res.status(400).json({msg: "User with this email does not exist! "});
+        }
+        //password matching with bcryptjs compare mathod
+        const isMatch = await bcryptjs.compare(password, user.password);
+        if(!isMatch){
+            return res.status(400).json({msg: "Incorrect Password"});
+        }
+
+    }catch(e){
+        res.status(500).json({error: e.message})
+    }
+});
+
 module.exports= authRouter;
