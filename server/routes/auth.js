@@ -3,17 +3,17 @@ const User = require("../models/user");
 const bcryptjs = require("bcryptjs");
 
 const authRouter = express.Router();
+const jwt = require('jsonwebtoken');
 
 authRouter.post('/api/signup',async (req,res)=>{
    try{
-        const {name,email,password} = req.body;
-        
+        const {name,email,password} = req.body;        
         /*crated model-> user schema->user model-> model exports using
         JS module.exports=User & HERE import using const User = require("../models/user")
         validating email from user model schema
         */
         const existingUser = await User.findOne({email});
-    
+
         /*Email-
         existingUser will not give boolean valu 
         it just chakiing, is it excistign anythings*/
@@ -52,7 +52,10 @@ authRouter.post('/api/signin',async (req, res)=>{
         if(!isMatch){
             return res.status(400).json({msg: "Incorrect Password"});
         }
-
+        const token = jwt.sign({id: user._id}, "passwordKey")
+        res.json({token,...user._doc});
+        
+        
     }catch(e){
         res.status(500).json({error: e.message})
     }
