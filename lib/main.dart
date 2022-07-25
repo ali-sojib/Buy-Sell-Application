@@ -1,8 +1,8 @@
 import 'package:buy_sell_appliction/common/widgets/bottom_bar.dart';
 import 'package:buy_sell_appliction/constants/global_variable.dart';
+import 'package:buy_sell_appliction/features/auth/screens/auth_screen.dart';
+import 'package:buy_sell_appliction/features/auth/services/auth_service.dart';
 import 'package:buy_sell_appliction/features/router.dart';
-import 'package:buy_sell_appliction/features/screens/auth_screen.dart';
-import 'package:buy_sell_appliction/features/services/auth_service.dart';
 import 'package:buy_sell_appliction/provirders/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

@@ -1,7 +1,7 @@
 import 'package:buy_sell_appliction/common/widgets/custom_button.dart';
 import 'package:buy_sell_appliction/common/widgets/custom_textfield.dart';
 import 'package:buy_sell_appliction/constants/global_variable.dart';
-import 'package:buy_sell_appliction/features/services/auth_service.dart';
+import 'package:buy_sell_appliction/features/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 enum Auth {

@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:buy_sell_appliction/constants/global_variable.dart';
+import 'package:buy_sell_appliction/features/account/screens/account_screen.dart';
 import 'package:buy_sell_appliction/features/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +21,7 @@ class _BottomBarState extends State<BottomBar> {
 
   List<Widget> pages = [
     HomeScreen(),
-    const Center(
-      child: Text('Account'),
-    ),
+    const AccountScreen(),
     const Center(
       child: Text('Cart'),
     ),

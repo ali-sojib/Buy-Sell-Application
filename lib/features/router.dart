@@ -1,6 +1,6 @@
 import 'package:buy_sell_appliction/common/widgets/bottom_bar.dart';
+import 'package:buy_sell_appliction/features/auth/screens/auth_screen.dart';
 import 'package:buy_sell_appliction/features/home/screens/home_screen.dart';
-import 'package:buy_sell_appliction/features/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {

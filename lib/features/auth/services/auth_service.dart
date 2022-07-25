@@ -6,7 +6,6 @@ import 'package:buy_sell_appliction/common/widgets/bottom_bar.dart';
 import 'package:buy_sell_appliction/constants/error_handling.dart';
 import 'package:buy_sell_appliction/constants/global_variable.dart';
 import 'package:buy_sell_appliction/constants/utils.dart';
-import 'package:buy_sell_appliction/features/home/screens/home_screen.dart';
 import 'package:buy_sell_appliction/models/user.dart';
 import 'package:buy_sell_appliction/provirders/user_provider.dart';
 import 'package:flutter/cupertino.dart';
