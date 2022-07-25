@@ -1,4 +1,7 @@
 import 'package:buy_sell_appliction/constants/global_variable.dart';
+import 'package:buy_sell_appliction/features/account/widgets/below_app_bar.dart';
+import 'package:buy_sell_appliction/features/account/widgets/orders.dart';
+import 'package:buy_sell_appliction/features/account/widgets/top_buttons.dart';
 import 'package:flutter/material.dart';
 
 class AccountScreen extends StatefulWidget {
@@ -50,7 +53,13 @@ class _AccountScreenState extends State<AccountScreen> {
         ),
       ),
       body: Column(
-        children: const [],
+        children: const [
+          BelowAppBar(),
+          SizedBox(height: 20),
+          TopButtons(),
+          SizedBox(height: 20),
+          Orders()
+        ],
       ),
     );
   }
