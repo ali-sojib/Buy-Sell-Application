@@ -1,8 +1,9 @@
 import 'package:buy_sell_appliction/common/widgets/bottom_bar.dart';
 import 'package:buy_sell_appliction/constants/global_variable.dart';
+import 'package:buy_sell_appliction/features/admin/screens/admin_screen.dart';
 import 'package:buy_sell_appliction/features/auth/screens/auth_screen.dart';
 import 'package:buy_sell_appliction/features/auth/services/auth_service.dart';
-import 'package:buy_sell_appliction/features/router.dart';
+import 'package:buy_sell_appliction/router.dart';
 import 'package:buy_sell_appliction/provirders/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -39,6 +40,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Buy sell Application',
       theme: ThemeData(
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
@@ -52,7 +54,15 @@ class _MyAppState extends State<MyApp> {
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const BottomBar()
+          ? Provider.of<UserProvider>(context).user.type == 'user'
+              /*i understand *IMPORTENT*
+              isNotEmpty=> if (true) ? fist : second
+                        ans:- ...{if true go second/ false go first}
+                        type=> if if (true) ? fist : second
+                            ans:- ...{if true go second/ false go first}
+              */
+              ? const BottomBar()
+              : const AdminScreen()
           : const AuthScreen(),
     );
   }

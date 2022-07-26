@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
+  final int maxLines;
 
-  const CustomTextField(
-      {Key? key, required this.controller, required this.hintText})
-      : super(key: key);
+  const CustomTextField({
+    Key? key,
+    required this.controller,
+    required this.hintText,
+    /*very *IMPORTENT*
+      that means by default mexline always be 1
+      but when some one pass mexline value it will
+      take that value and set it to maxLine proparty
+    */
+    this.maxLines = 1,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +35,8 @@ class CustomTextField extends StatelessWidget {
         if (val == null || val.isEmpty) {
           return 'Enter your $hintText';
         }
-        //my own style for password ui velidation
+        /* my code
+        my own style for password ui velidation*/
         if (hintText == "Password") {
           if (controller.text.length < 6) {
             return 'Plase Enter a long password';
@@ -33,6 +44,7 @@ class CustomTextField extends StatelessWidget {
         }
         return null;
       },
+      maxLines: maxLines,
     );
   }
 }

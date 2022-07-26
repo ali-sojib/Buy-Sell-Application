@@ -1,4 +1,5 @@
 import 'package:buy_sell_appliction/common/widgets/bottom_bar.dart';
+import 'package:buy_sell_appliction/features/admin/screens/add_product_screen.dart';
 import 'package:buy_sell_appliction/features/auth/screens/auth_screen.dart';
 import 'package:buy_sell_appliction/features/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => BottomBar(),
       );
-
+    case AddProdcutScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => AddProdcutScreen(),
+      );
     default:
       return MaterialPageRoute(
         settings: routeSettings,
