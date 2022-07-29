@@ -1,6 +1,7 @@
 //IMPORTS FOMR PACKAGES
 const express = require('express');
 const mongoose = require('mongoose');
+const adminRouter = require('./routes/admin');
 
 //IMPORTS FROM OTER FILES
 const authRouter=require("./routes/auth");
@@ -16,6 +17,7 @@ const DB = "mongodb+srv://ali_sojib:shokh@cluster0.ljbfg.mongodb.net/?retryWrite
 //CLIENT ->{MIDDLE WARE}-> SERVER -> CLIENT ->
 app.use(express.json());
 app.use(authRouter);
+app.use(adminRouter);
 
 //Connection
 mongoose
