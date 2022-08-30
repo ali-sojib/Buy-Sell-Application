@@ -3,9 +3,7 @@ import 'package:buy_sell_appliction/features/home/widgets/address_box.dart';
 import 'package:buy_sell_appliction/features/home/widgets/carousel_image.dart';
 import 'package:buy_sell_appliction/features/home/widgets/deal_of_day.dart';
 import 'package:buy_sell_appliction/features/home/widgets/top_categories.dart';
-import 'package:buy_sell_appliction/provirders/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routName = '/home';
