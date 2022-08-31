@@ -3,6 +3,7 @@ import 'package:buy_sell_appliction/features/admin/screens/add_product_screen.da
 import 'package:buy_sell_appliction/features/auth/screens/auth_screen.dart';
 import 'package:buy_sell_appliction/features/home/screens/category_deals_screen.dart';
 import 'package:buy_sell_appliction/features/home/screens/home_screen.dart';
+import 'package:buy_sell_appliction/features/search/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -33,6 +34,13 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => CategoryDealsScreen(
           category: category,
+        ),
+      );
+    case SearchScreen.routeName:
+      var searchQuery = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        builder: (_) => SearchScreen(
+          searchQuery: searchQuery,
         ),
       );
     default:
