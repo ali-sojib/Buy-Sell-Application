@@ -2,7 +2,7 @@ import 'package:buy_sell_appliction/common/widgets/loader.dart';
 import 'package:buy_sell_appliction/constants/global_variable.dart';
 import 'package:buy_sell_appliction/features/home/widgets/address_box.dart';
 import 'package:buy_sell_appliction/features/search/services/search_services.dart';
-import 'package:buy_sell_appliction/features/search/widgets/search_porducts.dart';
+import 'package:buy_sell_appliction/features/search/widgets/search_porduct.dart';
 import 'package:buy_sell_appliction/models/product.dart';
 import 'package:flutter/material.dart';
 
