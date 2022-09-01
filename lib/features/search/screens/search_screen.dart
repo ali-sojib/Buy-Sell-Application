@@ -1,6 +1,7 @@
 import 'package:buy_sell_appliction/common/widgets/loader.dart';
 import 'package:buy_sell_appliction/constants/global_variable.dart';
 import 'package:buy_sell_appliction/features/home/widgets/address_box.dart';
+import 'package:buy_sell_appliction/features/product_detail/screens/product_detail_screen.dart';
 import 'package:buy_sell_appliction/features/search/services/search_services.dart';
 import 'package:buy_sell_appliction/features/search/widgets/search_porduct.dart';
 import 'package:buy_sell_appliction/models/product.dart';
@@ -119,7 +120,13 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: ListView.builder(
                     itemCount: products!.length,
                     itemBuilder: (context, index) {
-                      return SearchedProduct(product: products![index]);
+                      return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, ProductDetailScreen.routeName,
+                                arguments: products![index]);
+                          },
+                          child: SearchedProduct(product: products![index]));
                     },
                   ),
                 )

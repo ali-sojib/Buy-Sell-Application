@@ -42,7 +42,7 @@ class SearchedProduct extends StatelessWidget {
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: const Satrs(rating: 5),
+                    child: const Starts(rating: 5),
                   ),
                   Container(
                     width: 235,
