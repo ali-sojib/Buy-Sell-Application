@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const reatingSchema = require("./rating");
 
 const productSchema = mongoose.Schema({
     name:{
@@ -35,9 +36,7 @@ const productSchema = mongoose.Schema({
     //userId
 
     //reating
-    ratings:[
-
-    ]
+    ratings:[reatingSchema],
 
 });
 
