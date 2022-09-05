@@ -31,11 +31,13 @@ const productSchema = mongoose.Schema({
     category:{
         type: String,
         require: true,
-    }
+    },
     //userId
 
     //reating
-    
+    ratings:[
+
+    ]
 
 });
 
