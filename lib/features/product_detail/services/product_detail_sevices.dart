@@ -33,7 +33,9 @@ class ProductDetailServices {
       httpErrorHandel(
         response: res,
         context: context,
-        onSuccess: () {},
+        onSuccess: () {
+          showSnackBar(context, 'added rate on mongodb check');
+        },
       );
     } catch (e) {
       showSnackBar(context, e.toString());

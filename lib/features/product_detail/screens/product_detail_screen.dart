@@ -1,6 +1,7 @@
 import 'package:buy_sell_appliction/common/widgets/custom_button.dart';
 import 'package:buy_sell_appliction/common/widgets/stars.dart';
 import 'package:buy_sell_appliction/constants/global_variable.dart';
+import 'package:buy_sell_appliction/features/product_detail/services/product_detail_sevices.dart';
 import 'package:buy_sell_appliction/features/search/screens/search_screen.dart';
 import 'package:buy_sell_appliction/models/product.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -18,6 +19,7 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  final ProductDetailServices productDetailServices = ProductDetailServices();
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
@@ -195,7 +197,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 Icons.star,
                 color: GlobalVariables.secondaryColor,
               ),
-              onRatingUpdate: (rating) {},
+              onRatingUpdate: (rating) {
+                productDetailServices.rateProduct(
+                  context: context,
+                  product: widget.product,
+                  rating: rating,
+                );
+              },
             )
           ],
         ),
