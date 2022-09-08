@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:buy_sell_appliction/common/widgets/stars.dart';
 import 'package:buy_sell_appliction/models/product.dart';
+import 'package:buy_sell_appliction/provirders/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SearchedProduct extends StatelessWidget {
   final Product product;
@@ -13,6 +15,17 @@ class SearchedProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double avgRating = 0;
+    double myRating = 0;
+    double totalRating = 0;
+
+    for (int i = 0; i < product.rating!.length; i++) {
+      totalRating += product.rating![i].rating;
+    }
+    if (totalRating != 0) {
+      avgRating = totalRating / product.rating!.length;
+    }
+
     return Column(
       children: [
         Container(
@@ -23,7 +36,7 @@ class SearchedProduct extends StatelessWidget {
             children: [
               Image.network(
                 product.images[0],
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.contain,
                 height: 135,
                 width: 135,
               ),
@@ -42,7 +55,7 @@ class SearchedProduct extends StatelessWidget {
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: const Starts(rating: 5),
+                    child: Starts(rating: avgRating),
                   ),
                   Container(
                     width: 235,

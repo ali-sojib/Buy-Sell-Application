@@ -8,6 +8,8 @@ class DealOfDay extends StatefulWidget {
 }
 
 class _DealOfDayState extends State<DealOfDay> {
+  String imgLink =
+      "https://image-us.samsung.com/us/smartphones/galaxy-s22-ultra/images/gallery/B0_Exclusive-Red/FLRC-214-B0-Red-01-PDP-GALLERY-1600x1200.jpg?\$product-details-jpg\$";
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,7 +23,7 @@ class _DealOfDayState extends State<DealOfDay> {
           ),
         ),
         Image.network(
-          'https://www.bdprice.com.bd/wp-content/uploads/2022/02/Samsung-Galaxy-S22-Ultra-5G-Red-price-in-Bangladesh.jpg',
+          imgLink,
           height: 235,
           fit: BoxFit.fitHeight,
         ),
